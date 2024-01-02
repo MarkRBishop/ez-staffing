@@ -258,12 +258,12 @@ Promise.all([db.promise().query(employeeQuery), db.promise().query(roleQuery)])
   // After updating, return to the main menu
   .then(() => {
     console.log('Employee\'s role updated successfully!\n');
-    startApp(); 
+    appStart(); 
   })
   // Handle errors and return to the main menu
   .catch((err) => {
     console.error('Error updating employee\'s role:', err);
-    startApp(); 
+    appStart(); 
   });
 }
 
