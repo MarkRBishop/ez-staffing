@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS department (
     department_name VARCHAR(30) NOT NULL
 );
 
+-- Create role table
 CREATE TABLE IF NOT EXISTS role (
   id INT PRIMARY KEY AUTO_INCREMENT,
   title VARCHAR(30) NOT NULL,
@@ -18,6 +19,7 @@ CREATE TABLE IF NOT EXISTS role (
   FOREIGN KEY (department_id) REFERENCES department(id)
 );
 
+-- Create employee table
 CREATE TABLE IF NOT EXISTS employee (
     id INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR (30) NOT NULL,
