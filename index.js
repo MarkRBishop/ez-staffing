@@ -24,7 +24,7 @@ function appStart () {
                 case 'View all departments':
                     viewAllDepartments()
                     break;
-                case 'View all Roles':
+                case 'View all roles':
                     viewAllRoles()
                     break;
                 case 'View all employees':
@@ -96,7 +96,7 @@ function addDepartment(){
         ])
         .then ((answers) => {
             const query = 'INSERT INTO department (department_name) VALUES (?)';
-            const values = [answer.departmentName]
+            const values = [answers.departmentName]
 
             db.query(query, values, (err) => {
                 if (err) throw err
@@ -147,7 +147,7 @@ function addRole(){
     ])
     .then ((answers) => {
         const query = 'INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)';
-        const values = [answer.title, answers.salary, answers.departmentID]
+        const values = [answers.title, answers.salary, answers.departmentID]
 
         db.query(query, values, (err) => {
             if (err) throw err
