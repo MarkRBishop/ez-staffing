@@ -1,0 +1,26 @@
+# Node.js
+node_modules/
+
+# Logs
+logs/
+*.log
+
+# Dependency directory
+dependency/
+
+# dotenv environment variables file
+.env
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Editor-specific files
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
