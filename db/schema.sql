@@ -1,8 +1,8 @@
 -- Create the employees_db
 CREATE DATABASE IF NOT EXISTS employees_db;
 
---use the employees_db
-USE employees_db
+-- use the employees_db
+USE employees_db;
 
 -- Create department table
 CREATE TABLE IF NOT EXISTS department (
