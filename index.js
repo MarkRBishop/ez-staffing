@@ -1,10 +1,12 @@
 const inquirer = require('inquirer')
 const db = require('./db/connection')
 
+//Function to start the application and prompt the user
 function appStart () {
     inquirer
         .prompt([
             {
+                //menu choices list
                 type: 'list',
                 name:'action',
                 messsage: 'What would you like to do?',
@@ -19,6 +21,7 @@ function appStart () {
                 ]
             }
         ])
+        //the selected answer by the user calls a function depending on what was selected.
         .then((answers) => {
             switch (answers.action) {
                 case 'View all departments':
@@ -46,17 +49,22 @@ function appStart () {
         })
 }
 
+//function to view all the departments
 function viewAllDepartments(){
     const query = 'SELECT * FROM department';
 
+    //error handling
     db.query(query, (err, results) => {
         if (err) throw err
 
+        //displays the results in a table
         console.table(results)
+        //call the application again so they can run another command
         appStart()
     })
 }
 
+//function to view all the roles in a table
 function viewAllRoles(){
     const query = 'SELECT * FROM role';
 
@@ -68,6 +76,7 @@ function viewAllRoles(){
     })
 }
 
+//function to view all the employees in a table
 function viewAllEmployees (){
     const query = 'SELECT * FROM employee';
 
@@ -79,8 +88,10 @@ function viewAllEmployees (){
     })
 }
 
+//function to add a department
 function addDepartment(){
     inquirer
+        //prompts the user to give a name of the new department
         .prompt([
             {
                 type: 'input',
@@ -94,6 +105,7 @@ function addDepartment(){
                 }
             }
         ])
+        // inserts the user input into the table of the db, and has some error handling
         .then ((answers) => {
             const query = 'INSERT INTO department (department_name) VALUES (?)';
             const values = [answers.departmentName]
@@ -108,8 +120,10 @@ function addDepartment(){
         })
 }
 
+//function to add a role to the db
 function addRole(){
     inquirer
+    //prompts the user for a title, a salary and a department id for the new role, also provides some error handling
     .prompt([
         {
             type: 'input',
@@ -145,6 +159,7 @@ function addRole(){
             }
         }
     ])
+    //takes user input and adds it into the table of the db
     .then ((answers) => {
         const query = 'INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)';
         const values = [answers.title, answers.salary, answers.departmentID]
@@ -159,8 +174,10 @@ function addRole(){
     })
 }
 
+//function to add and employee to the table of the db
 function addEmployee(){
     inquirer
+        //prompts the user to add a first and last name, their role, and the manager they work under (if applicable)
         .prompt([
             {
                 type: 'input',
@@ -207,6 +224,7 @@ function addEmployee(){
                 }
             }
         ])
+        //takes the user input and adds it the employee table in the db as well as error handling
         .then((answers) => {
             const query = 'INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)'
             const values = [answers.firstName, answers.lastName, answers.roleID, answers.managerID || null]
@@ -267,4 +285,5 @@ Promise.all([db.promise().query(employeeQuery), db.promise().query(roleQuery)])
   });
 }
 
+//calls the entire function to start
 appStart()

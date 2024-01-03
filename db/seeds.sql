@@ -1,3 +1,4 @@
+-- Seeded data to fill the db initially
 INSERT INTO department (department_name)
 Values  ("Sales"),
         ("Engineering"),
@@ -5,14 +6,14 @@ Values  ("Sales"),
         ("Accounting");
 
 INSERT INTO role (title, salary, department_id)
-Values  ('Sales Lead', 90000, 1),
-        ('Lead Engineer', 120000, 2),
-        ('HR Manager', 70000, 3),
-        ('Finance Manager', 90000, 4),
-        ('Sales Associate', 50000, 1),
-        ('Software Engineer', 85000, 2),
-        ('Front Desk Clerk', 40000, 3),
-        ('Accountant', 65000, 4);
+Values  ('Sales Lead', 90000.00, 1),
+        ('Lead Engineer', 120000.00, 2),
+        ('HR Manager', 70000.00, 3),
+        ('Finance Manager', 90000.00, 4),
+        ('Sales Associate', 50000.00, 1),
+        ('Software Engineer', 85000.00, 2),
+        ('Front Desk Clerk', 40000.00, 3),
+        ('Accountant', 65000.00, 4);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES  ('Michael','Scott',1,NULL),
