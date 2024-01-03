@@ -57,7 +57,7 @@ node index.js
 
 ## Usage
 
-After getting the application started with the steps above, you can scroll through the different options using the arrow keys. Depending on what you chose to do, there will be a series of prompts or perhaps even another list for you to scroll through.
+After getting the application started with the steps above, you can scroll through the different options using the arrow keys. Depending on what you chose to do, there will be a series of prompts or perhaps even another list for you to scroll through. After you're finished just hit CTRL C to end the program.
 
 ## License
 
