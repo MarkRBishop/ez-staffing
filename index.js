@@ -217,6 +217,11 @@ function addEmployee(){
                 name: 'managerID',
                 message: "Enter the manager's ID for the new Employee (optional):",
                 validate: (input) => {
+                    //allows blank values (pressing enter)
+                    if (input.trim() === ''){
+                        return true;
+                    }
+
                     if (isNaN(input) || input <=0) {
                         return 'Please enter a valid manager ID or leave it blank.'
                     }
@@ -264,18 +269,33 @@ Promise.all([db.promise().query(employeeQuery), db.promise().query(roleQuery)])
         message: 'Select the new role for the employee:',
         choices: roles.map((role) => ({ value: role.id, name: role.title })),
       },
+      {
+        type:'input',
+        name: 'managerID',
+        message: "Enter the new manager's ID for the employee (optional, press Enter to leave blank):",
+        validate: (input) => {
+            if (input.trim() === '') {
+                return true
+            }
+
+            if (isNaN(input) || input <= 0) {
+                return 'Please enter a valid manager ID or leave it blank.'
+            }
+            return true;
+        },
+      },
     ]);
   })
   .then((answers) => {
     // Update the employee's role in the database
-    const query = 'UPDATE employee SET role_id = ? WHERE id = ?';
-    const values = [answers.roleId, answers.employeeId];
+    const query = 'UPDATE employee SET role_id = ?, manager_id = ? WHERE id = ?';
+    const values = [answers.roleId, answers.managerID || null, answers.employeeId];
 
     return db.promise().query(query, values);
   })
   // After updating, return to the main menu
   .then(() => {
-    console.log('Employee\'s role updated successfully!\n');
+    console.log('Employee\'s role and manager updated successfully!\n');
     appStart(); 
   })
   // Handle errors and return to the main menu
