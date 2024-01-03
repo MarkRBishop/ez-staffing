@@ -1,3 +1,4 @@
+//Helper function to 
 const mysql = require('mysql2')
 require("dotenv").config()
 
