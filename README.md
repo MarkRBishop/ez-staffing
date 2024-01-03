@@ -49,10 +49,10 @@ node index.js
 ## Links
 
 Video of application in use:
-
+https://drive.google.com/file/d/1xeW7bP0uqCQbEXF9MbNMJJReiwGt7egj/view
 
 Repository to pull the files from:
-
+https://github.com/MarkRBishop/ez-staffing
 
 ## Usage
 
