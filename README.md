@@ -1,10 +1,19 @@
 ## ez-staffing
 
-![screenshot of the application]()
+![screenshot of the application](https://github.com/MarkRBishop/ez-staffing/blob/main/assets/ss-of-ez-staffing.png?raw=true)
 
 ## Description
 
 This application using iquirer, node.js and mysql is a simple demonstration of how you can manipulate a mysql database from the command line. It utilizes a schema and a seed, although you can write your own seed as well if you desire. It uses inquirer to prompt and view lists which then will display, add or edit information in the database.
+
+## Links
+
+Video of application in use:
+https://drive.google.com/file/d/1xeW7bP0uqCQbEXF9MbNMJJReiwGt7egj/view
+
+Repository to pull the files from:
+https://github.com/MarkRBishop/ez-staffing
+
 
 ## Getting started
 
@@ -45,14 +54,6 @@ source db/seeds.sql
 ```
 node index.js
 ```
-
-## Links
-
-Video of application in use:
-https://drive.google.com/file/d/1xeW7bP0uqCQbEXF9MbNMJJReiwGt7egj/view
-
-Repository to pull the files from:
-https://github.com/MarkRBishop/ez-staffing
 
 ## Usage
 
